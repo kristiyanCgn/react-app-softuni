@@ -17,6 +17,7 @@ export const Header = () => {
                 ?
                 <>
                 <Link to="/my-team">My Team</Link>
+                <Link to="/create">Create</Link>
                 <Link to="/logout">Logout</Link>
                 </>
                 :

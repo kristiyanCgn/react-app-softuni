@@ -3,19 +3,20 @@ import { faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import './MyTeamCard.css'
 import { useContext } from 'react'
 import { appContext } from '../../Contexts/appContext'
+import * as driverService from '../../services/driverService';
 
-export const MyTeamCard = ({myDriver}) => {
-    const { setMyDrivers } = useContext(appContext);
+export const MyTeamCard = ({ myDriver, setMyTeam }) => {
 
-    const onDeleteClick = (driverId) => {
-        setMyDrivers(state => state.filter(x => x.driverId != driverId));
+    const onDeleteClick = async (driverId) => {
+        await driverService.removeDriver(driverId);
+        setMyTeam(state => state.filter(x => x._id !== driverId));
     }
 
     return (
         <li className="my-profile-card">
-            <p className="img img-driver"><img src={myDriver.imageUrl} /></p>
-            <h2>{myDriver.familyName}</h2>
-            <button onClick={() => onDeleteClick(myDriver.driverId)} className="button"><FontAwesomeIcon icon={faTrashCan} /></button>
+            <p className="img img-driver"><img src={myDriver.driver.imageUrl} /></p>
+            <h2>{myDriver.driver.familyName}</h2>
+            <button onClick={() => onDeleteClick(myDriver._id)} className="button"><FontAwesomeIcon icon={faTrashCan} /></button>
         </li>
     );
 }

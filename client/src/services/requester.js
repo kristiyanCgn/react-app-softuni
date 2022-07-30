@@ -1,7 +1,7 @@
 export const request = async (method, url, data) => {
     let result = null;
     const user = getToken();
-
+   
     let headers = {}
 
     if (user) {
@@ -9,7 +9,7 @@ export const request = async (method, url, data) => {
     }
 
     if (method == 'GET') {
-        result = fetch(url, { headers });
+        result = fetch(url);
     } else {
         result = fetch(url, {
             method,
@@ -53,3 +53,4 @@ function getToken() {
 export const get = request.bind(null, 'GET');
 export const put = request.bind(null, 'PUT');
 export const post = request.bind(null, 'POST');
+export const del = request.bind(null, 'DELETE');

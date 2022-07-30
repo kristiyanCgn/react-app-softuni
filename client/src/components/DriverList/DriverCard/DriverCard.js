@@ -10,21 +10,20 @@ import './DriverCard.css'
 export const DriverCard = ({driver}) => {
     let fullName = driver.givenName + ' ' + driver.familyName;
 
-    const { myDrivers, setMyDrivers } = useContext(appContext);
+    // const { myDrivers, setMyDrivers } = useContext(appContext);
     const { user } = useContext(authContext);
 
     const addToCollection = async (e, selectedDriver) => {
-        const myTeam = await driverService.getMyTeam(user._id);
-        
+        const myTeam = await driverService.getMyTeam(user._id, user.accessToken) || [];
         const isAdded = myTeam.some(x => x.driver.driverId == selectedDriver.driverId)
 
         if(myTeam.length < 5 && !isAdded){
             driverService.addDriver(selectedDriver);
 
-            setMyDrivers(state => [
-                ...state,
-                selectedDriver
-            ]);
+            // setMyDrivers(state => [
+            //     ...state,
+            //     selectedDriver
+            // ]);
             e.target.className = 'disabled'
         }
     };

@@ -22,7 +22,6 @@ import { useLocalStorage } from './hooks/useLocalStorage';
 function App() {
 	const [drivers, setDrivers] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [myDrivers, setMyDrivers] = useState([]);
   const [user, setUser] = useLocalStorage('user' ,{});
 
   const onLogin = (data) =>{
@@ -75,7 +74,7 @@ function App() {
 	<Header />
 
 		<main id="site-content">
-      <appContext.Provider value={{isLoading, setIsLoading, myDrivers, setMyDrivers}}>
+      <appContext.Provider value={{isLoading, setIsLoading}}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/drivers/*" element={<Drivers drivers={drivers} isLoading={isLoading} />} />
@@ -83,7 +82,7 @@ function App() {
           <Route path="/standings/*" element={<Standings />} />
           <Route path="/schedule/*" element={<Schedule />} />
           <Route path="/details/:driverId" element={<Details drivers={drivers} />} />
-          <Route path="/my-team" element={<MyTeam myDrivers={myDrivers}/>} />
+          <Route path="/my-team" element={<MyTeam />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/logout" element={<Logout />} />
