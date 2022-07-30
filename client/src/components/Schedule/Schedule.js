@@ -12,6 +12,10 @@ export const Schedule = () => {
         setClickedCircuit(circuit);
     }
 
+    const backClick = () => {
+        setClickedCircuit(null)
+    }
+
     useEffect(() => {
         fetch('http://ergast.com/api/f1/current.json')
             .then(res => res.json())
@@ -22,7 +26,7 @@ export const Schedule = () => {
 
     if(clickedCircuit) {
         return (
-            <ScheduleDetails circuit={clickedCircuit} />
+            <ScheduleDetails circuit={clickedCircuit} backClick={backClick} />
         );
     } else {
         return (

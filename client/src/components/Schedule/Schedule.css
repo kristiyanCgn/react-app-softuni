@@ -51,5 +51,8 @@
 
   #customers > tbody > tr > td:nth-child(2) {
     text-align: left;
+  }
 
+  .back-button {
+    width: 10%;
   }

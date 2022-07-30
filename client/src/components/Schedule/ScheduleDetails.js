@@ -1,8 +1,9 @@
 
-export const ScheduleDetails = ({circuit}) => {
+export const ScheduleDetails = ({ circuit, backClick }) => {
     const thirdPractice = circuit.ThirdPractice;
 
     return (
+        <>
         <table id="customers">
             <thead>
                 <tr>
@@ -57,5 +58,7 @@ export const ScheduleDetails = ({circuit}) => {
                 
             </tbody>
         </table>
+        <button onClick={backClick} className="button back-button">back</button>
+        </>
     );
 }
