@@ -1,9 +1,13 @@
+import { useContext } from "react";
+
+import { appContext } from "../../Contexts/appContext";
 import { DriverList } from "../DriverList/DriverList";
 import { Spinner } from "../Spinner/Spinner";
 import './Drivers.css';
 
 
-export const Drivers = ({drivers, isLoading}) => {
+export const Drivers = () => {
+    const { drivers, isLoading } = useContext(appContext);
     
     if(isLoading) {
         return (

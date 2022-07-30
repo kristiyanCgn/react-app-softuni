@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 
 import * as driverService from '../../services/driverService';
@@ -6,9 +6,12 @@ import { Button } from 'react-bootstrap';
 import { Spinner } from '../Spinner/Spinner';
 import { useDriverState } from '../../hooks/useDriverState';
 import './Details.css'
+import { appContext } from '../../Contexts/appContext';
 
 
-export const Details = ({drivers}) => {
+export const Details = () => {
+
+    const { drivers } = useContext(appContext);
     const navigate = useNavigate();
     const { driverId } = useParams();
     const [driver, setDriver, isLoading] = useDriverState(driverId);
