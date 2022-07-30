@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import { Routes, Route } from 'react-router-dom'
 
 import { appContext } from './Contexts/appContext';
-import { authContext } from './Contexts/authContext';
+import { AuthProvider } from './Contexts/authContext';
 import { Drivers } from './components/Drivers/Drivers';
 import { Details } from './components/Details/Details';
 import { Header } from './components/Header/Header';
@@ -16,7 +16,6 @@ import * as driverService from './services/driverService';
 import { MyTeam } from './components/MyProfile/MyTeam';
 import { Schedule } from './components/Schedule/Schedule';
 import { Logout } from './components/Home/Logout/Logout';
-import { useLocalStorage } from './hooks/useLocalStorage';
 import { CreateDriver } from './components/CreateDriver/CreateDriver';
 import { UserDrivers } from './components/UserDrivers/UserDrivers';
 import { ProfileProvider } from './Contexts/profileContext';
@@ -26,16 +25,6 @@ import { EditUserDriverCard } from './components/UserDrivers/EditUserDriverCard'
 function App() {
 	const [drivers, setDrivers] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [user, setUser] = useLocalStorage('user' ,{});
-
-  const onLogin = (data) =>{
-    setUser(data);
-  }
-
-  const onLogout = () => {
-    setUser({});
-  }
-
 
     useEffect(() => {
       setIsLoading(true);
@@ -74,7 +63,7 @@ function App() {
   
 
   return (
-    <authContext.Provider value={{user, onLogin, onLogout}}>
+    <AuthProvider>
     <div className="App">
 		
 	<Header />
@@ -101,7 +90,7 @@ function App() {
       </appContext.Provider>
 		</main>
     </div>
-    </authContext.Provider>
+    </AuthProvider>
   );
 }
 
