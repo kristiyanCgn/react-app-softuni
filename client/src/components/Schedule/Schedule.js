@@ -22,7 +22,7 @@ export const Schedule = () => {
 
     if(clickedCircuit) {
         return (
-            <ScheduleDetails circuit={clickedCircuit}/>
+            <ScheduleDetails circuit={clickedCircuit} />
         );
     } else {
         return (

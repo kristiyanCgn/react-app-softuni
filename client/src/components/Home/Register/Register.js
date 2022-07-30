@@ -26,7 +26,7 @@ export const Register = () => {
                     navigate('/');
                 })
                 .catch((error) => {
-                    console.log(error.message);
+                    setErrors(error.message);
                 })
         
     }
