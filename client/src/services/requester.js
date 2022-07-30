@@ -1,14 +1,21 @@
 export const request = async (method, url, data) => {
     let result = null;
+    const user = getToken();
+
+    let headers = {}
+
+    if (user) {
+        headers['X-Authorization'] = user;
+    }
 
     if (method == 'GET') {
-        result = fetch(url);
+        result = fetch(url, { headers });
     } else {
         result = fetch(url, {
             method,
             headers: {
+                ...headers,
                 'Content-type': 'application/json',
-                'X-Authorization': getToken()
             },
             body: JSON.stringify(data)
         });
