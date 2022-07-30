@@ -32,7 +32,8 @@ export const getMyTeam = async (ownerId, accessToken) => {
     }
 }
 
-export const removeDriver = (recordId) => request.del(`http://localhost:3030/data/myTeam/${recordId}`)
+export const removeDriver = (recordId) => request.del(`http://localhost:3030/data/myTeam/${recordId}`);
+
 
 
 
