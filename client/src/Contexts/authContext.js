@@ -15,8 +15,10 @@ export const AuthProvider = ({ children }) => {
         setUser({});
     }
 
+    const isAuthenticated = Boolean(user.email)
+
     return (
-        <authContext.Provider value={{user, onLogin, onLogout   }}>
+        <authContext.Provider value={{user, onLogin, onLogout, isAuthenticated }}>
             {children}
         </authContext.Provider>
     );

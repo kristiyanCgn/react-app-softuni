@@ -17,6 +17,8 @@ import { Logout } from './components/Home/Logout/Logout';
 import { CreateDriver } from './components/CreateDriver/CreateDriver';
 import { UserDrivers } from './components/UserDrivers/UserDrivers';
 import { EditUserDriverCard } from './components/UserDrivers/EditUserDriverCard';
+import { PrivateGuard } from './components/common/PrivateGuard';
+import { PublicGuard } from './components/common/PublicGuard';
 
 
 function App() {
@@ -31,19 +33,23 @@ function App() {
       <AppProvider>
       <ProfileProvider>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/drivers/*" element={<Drivers />} />
-          <Route path="/teams/*" element={<Teams />} />
-          <Route path="/standings/*" element={<Standings />} />
-          <Route path="/schedule/*" element={<Schedule />} />
-          <Route path="/details/:driverId" element={<Details />} />
-          <Route path="/my-team" element={<MyTeam />} />
-          <Route path="/create" element={<CreateDriver />} />
-          <Route path="/user-drivers/:profileId/edit" element={<EditUserDriverCard />} />
-          <Route path="/user-drivers" element={<UserDrivers />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/logout" element={<Logout />} />
+        	<Route element={<PrivateGuard />}>
+				<Route path="/user-drivers/:profileId/edit" element={<EditUserDriverCard />} />
+				<Route path="/create" element={<CreateDriver />} />
+				<Route path="/my-team" element={<MyTeam />} />
+				<Route path="/logout" element={<Logout />} />
+				<Route path="/user-drivers" element={<UserDrivers />} />
+        	</Route>
+			<Route element={<PublicGuard />}>
+				<Route path="/login" element={<Login />} />
+				<Route path="/register" element={<Register />} />
+			</Route>
+			<Route path="/" element={<Home />} />
+			<Route path="/drivers/*" element={<Drivers />} />
+			<Route path="/teams/*" element={<Teams />} />
+			<Route path="/standings/*" element={<Standings />} />
+			<Route path="/schedule/*" element={<Schedule />} />
+			<Route path="/details/:driverId" element={<Details />} />
         </Routes>
       </ProfileProvider>
       </AppProvider>
