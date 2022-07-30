@@ -12,6 +12,7 @@ export const Header = () => {
             <Link to="/teams">Teams</Link>
             <Link to="/standings">Standings</Link>
             <Link to="/schedule">Schedule</Link>
+            <Link to="/user-drivers">Profiles</Link>
             <div className="topnav-right">
                 {user.email
                 ?

@@ -8,8 +8,12 @@ import * as driverService from '../../services/driverService';
 export const MyTeamCard = ({ myDriver, setMyTeam }) => {
 
     const onDeleteClick = async (driverId) => {
-        await driverService.removeDriver(driverId);
-        setMyTeam(state => state.filter(x => x._id !== driverId));
+        const confirmation = window.confirm('Are you sure you want to delete this driver?')
+
+        if(confirmation) {
+            await driverService.removeDriver(driverId);
+            setMyTeam(state => state.filter(x => x._id !== driverId));
+        }
     }
 
     return (

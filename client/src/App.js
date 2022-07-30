@@ -17,6 +17,9 @@ import { MyTeam } from './components/MyProfile/MyTeam';
 import { Schedule } from './components/Schedule/Schedule';
 import { Logout } from './components/Home/Logout/Logout';
 import { useLocalStorage } from './hooks/useLocalStorage';
+import { CreateDriver } from './components/CreateDriver/CreateDriver';
+import { UserDrivers } from './components/UserDrivers/UserDrivers';
+import { ProfileProvider } from './Contexts/profileContext';
 
 
 function App() {
@@ -67,6 +70,8 @@ function App() {
             })
     }, []);
 
+  
+
   return (
     <authContext.Provider value={{user, onLogin, onLogout}}>
     <div className="App">
@@ -75,6 +80,7 @@ function App() {
 
 		<main id="site-content">
       <appContext.Provider value={{isLoading, setIsLoading}}>
+      <ProfileProvider>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/drivers/*" element={<Drivers drivers={drivers} isLoading={isLoading} />} />
@@ -83,10 +89,13 @@ function App() {
           <Route path="/schedule/*" element={<Schedule />} />
           <Route path="/details/:driverId" element={<Details drivers={drivers} />} />
           <Route path="/my-team" element={<MyTeam />} />
+          <Route path="/create" element={<CreateDriver />} />
+          <Route path="/user-drivers" element={<UserDrivers />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/logout" element={<Logout />} />
         </Routes>
+      </ProfileProvider>
       </appContext.Provider>
 		</main>
     </div>
