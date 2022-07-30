@@ -13,9 +13,9 @@ export const CreateDriver = () => {
         e.preventDefault();
 
         const driverData = Object.fromEntries(new FormData(e.target));
-        console.log(driverData);
         await profileService.createDriver(driverData);
-        addUserDriver(driverData);
+        const newestList = await profileService.getAll();
+        addUserDriver(newestList);
 
         navigate('/')
     }

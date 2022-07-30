@@ -17,10 +17,11 @@ export const ProfileProvider = ({ children }) => {
         }
 
         const addUserDriver = (recordData) => {
-            setUserDrivers(state => [
-                        ...state,
-                        recordData
-            ])
+            setUserDrivers(recordData)
+        }
+
+        const updateUserDriver = () => {
+            
         }
     
     useEffect(() => {

@@ -20,6 +20,7 @@ import { useLocalStorage } from './hooks/useLocalStorage';
 import { CreateDriver } from './components/CreateDriver/CreateDriver';
 import { UserDrivers } from './components/UserDrivers/UserDrivers';
 import { ProfileProvider } from './Contexts/profileContext';
+import { EditUserDriverCard } from './components/UserDrivers/EditUserDriverCard';
 
 
 function App() {
@@ -90,6 +91,7 @@ function App() {
           <Route path="/details/:driverId" element={<Details drivers={drivers} />} />
           <Route path="/my-team" element={<MyTeam />} />
           <Route path="/create" element={<CreateDriver />} />
+          <Route path="/user-drivers/:profileId/edit" element={<EditUserDriverCard />} />
           <Route path="/user-drivers" element={<UserDrivers />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />

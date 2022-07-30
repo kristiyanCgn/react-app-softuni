@@ -7,7 +7,9 @@ import { UserDriverList } from "./UserDriverList";
 
 export const UserDrivers = ({ isLoading }) => {
     const { userDrivers } = useContext(profileContext);
+    console.log(userDrivers);
     
+
     if(isLoading) {
         return (
             <Spinner />

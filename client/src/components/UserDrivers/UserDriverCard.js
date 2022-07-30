@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 import { authContext } from '../../Contexts/authContext';
 import { profileContext } from '../../Contexts/profileContext';
@@ -21,21 +21,22 @@ export const UserDriverCard = ({ driver }) => {
             navigate('/user-drivers');
         }
     }
+
     
     return (
         <li className="otherPet">
-            <p className="img img-driver"><img src={driver.driverData.imageUrl} /></p>
-            <h3>{driver.driverData.firstname}</h3>
-            <h3>{driver.driverData.familyname}</h3>
-            <p>Driver Number: #{driver.driverData.driverNumber}</p>
-            <p>Nationality: {driver.driverData.nationality}</p>
-            <p>Date Of Brith: {driver.driverData.dateOfBirth}</p>
-            <p>Display Name: {driver.driverData.displayName}</p>
-            <p>Description: {driver.driverData.description}</p>
+            <p className="img img-driver"><img src={driver.newData?.driverData?.imageUrl || driver.driverData?.imageUrl} /></p>
+            <h3>{driver.newData?.driverData?.firstname || driver.driverData?.firstname}</h3>
+            <h3>{driver.newData?.driverData?.familyname || driver.driverData?.familyname}</h3>
+            <p>Driver Number: #{driver.newData?.driverData?.driverNumber || driver.driverData?.driverNumber}</p>
+            <p>Nationality: {driver.newData?.driverData?.nationality || driver.driverData?.nationality}</p>
+            <p>Date Of Brith: {driver.newData?.driverData?.dateOfBirth || driver.driverData?.dateOfBirth}</p>
+            <p>Display Name: {driver.newData?.driverData?.displayName || driver.driverData?.displayName}</p>
+            <p>Description: {driver.newData?.driverData?.description || driver.driverData?.description}</p>
             {isOwner
             ? 
             <>
-            <button className="button">Edit</button>
+            <Link to={`/user-drivers/${driver._id}/edit`} className="button">Edit</Link>
             <button onClick={() => deleteHandler(driver._id)} className="button">Delete</button>
             </>
             : ''
