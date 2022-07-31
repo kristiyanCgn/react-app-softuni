@@ -25,7 +25,7 @@ export const Details = () => {
             <>
                 <section id="details-page" className="details">
                     <div className="pet-information">
-                        <p className="img img-details"><img src={driver.imageUrl} /></p>
+                        <p className="img img-details"><img src={driver.imageUrl} alt='driver image' /></p>
                         <h4>First Name: {driver.givenName}</h4>
                         <h4>Family Name: {driver.familyName}</h4>
                         <p className="type">Driver Number: #{driver.permanentNumber}</p>

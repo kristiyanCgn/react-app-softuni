@@ -1,11 +1,13 @@
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { appContext } from '../../Contexts/appContext';
 
 import { profileContext } from '../../Contexts/profileContext';
 import * as profileService from '../../services/profileService';
 import './CreateDriver.css';
 
 export const CreateDriver = () => {
+    const { errors, addError } = useContext(appContext);
     const { addUserDriver } = useContext(profileContext);
     const navigate = useNavigate();
 
@@ -18,6 +20,12 @@ export const CreateDriver = () => {
         addUserDriver(newestList);
 
         navigate('/')
+    }
+
+    const minLengthValidation = (value) => {
+        if (value.lenght < 3) {
+
+        }
     }
 
     return (

@@ -14,12 +14,9 @@ export const EditUserDriverCard = () => {
     useEffect(() => {
         profileService.getOne(profileId)
             .then(result => {
-                console.log(result);
                 setCurrentProfile(result)
             })
     }, [])
-
-    console.log(currentProfile);
 
     const onSubmit = async (e) => {
         e.preventDefault();

@@ -7,6 +7,7 @@ export const appContext = createContext();
 export const AppProvider = ({ children }) => {
     const [drivers, setDrivers] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    const [errors, setErrors] = useState(null)
 
     useEffect(() => {
       setIsLoading(true);
@@ -42,8 +43,12 @@ export const AppProvider = ({ children }) => {
             })
     }, []);
 
+    const addError = (text) => {
+        setErrors(text);
+    }
+
     return (
-        <appContext.Provider value={{ drivers, isLoading, setIsLoading }}>
+        <appContext.Provider value={{ drivers, isLoading, setIsLoading, errors, addError }}>
             {children}
         </appContext.Provider>
     );

@@ -1,12 +1,13 @@
 import * as authService from '../../../services/authService';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { authContext } from '../../../Contexts/authContext';
 
 import '../LoginAndRegister.css'
 import { Link, useNavigate } from 'react-router-dom'
+import { appContext } from '../../../Contexts/appContext';
 
 export const Register = () => {
-    const [errors, setErrors] = useState(null)
+    const { errors, addError } = useContext(appContext);
     const { onLogin } = useContext(authContext);
     const navigate = useNavigate();
 
@@ -16,7 +17,7 @@ export const Register = () => {
         const { email, password, repeatPassword } = Object.fromEntries(new FormData(e.target));
 
         if(password !== repeatPassword) {
-            setErrors('Passwords do not match!')
+            addError('Passwords do not match!')
             return;
         }
 
@@ -26,7 +27,7 @@ export const Register = () => {
                     navigate('/');
                 })
                 .catch((error) => {
-                    setErrors(error.message);
+                    addError(error.message);
                 })
         
     }

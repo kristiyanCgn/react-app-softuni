@@ -1,11 +1,12 @@
 import * as authService from '../../../services/authService';
 import '../LoginAndRegister.css'
 import { Link, useNavigate } from 'react-router-dom'
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { authContext } from '../../../Contexts/authContext';
+import { appContext } from '../../../Contexts/appContext';
 
 export const Login = () => {
-    const [errors, setErrors] = useState(null)
+    const { errors, addError } = useContext(appContext);
     const { onLogin } = useContext(authContext);
     const navigate = useNavigate();
 
@@ -21,7 +22,7 @@ export const Login = () => {
                 navigate('/');
             })
             .catch ((error) => {
-                setErrors(error.message);
+                addError(error.message);
             })
 
     }
