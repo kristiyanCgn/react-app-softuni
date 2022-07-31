@@ -14,7 +14,11 @@ export const Details = () => {
     const [driver, setDriver, isLoading] = useDriverState(driverId);
 
     let neededDriver = drivers.find(x => x.driverId == driverId);
-    driver.imageUrl = neededDriver.imageUrl
+    if(neededDriver) {
+        driver.imageUrl = neededDriver.imageUrl
+    } else {
+        driver.imageUrl = null;
+    }
 
     if(isLoading) {
         return (

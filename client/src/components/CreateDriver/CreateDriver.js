@@ -110,7 +110,7 @@ export const CreateDriver = () => {
                 <label htmlFor="fname">First Name</label>
                 <input onBlur={(e) => firstNameCheck(e.target.value)} type="text" id="fname" name="firstname" placeholder="Your name.." />
                 {fnameError
-                    ? <span className='errors'>{fnameError}</span>
+                    ? <p className='errors'>{fnameError}</p>
                     : ''
                 }
                 <label htmlFor="lname">Family Name</label>
@@ -122,41 +122,41 @@ export const CreateDriver = () => {
                 placeholder="Your family name.."
                 />
                  {famnameError
-                    ? <span className='errors'>{famnameError}</span>
+                    ? <p className='errors'>{famnameError}</p>
                     : ''
                 }
                  <label htmlFor="dnumber">Driver Number</label>
                 <input onBlur={(e) => driverNumberCheck(e.target.value)} type="text" id="dnumber" name="driverNumber" placeholder='#'/>
                 {driverNumberError
-                    ? <span className='errors'>{driverNumberError}</span>
+                    ? <p className='errors'>{driverNumberError}</p>
                     : ''
                 }
 
                 <label htmlFor="nationality">Nationality</label>
                 <input onBlur={(e) => nationalityCheck(e.target.value)} type="text" id="nationality" name="nationality" placeholder='Thai'/>
                 {nationalityError
-                    ? <span className='errors'>{nationalityError}</span>
+                    ? <p className='errors'>{nationalityError}</p>
                     : ''
                 }
 
                 <label htmlFor="birthday">Date Of Birth</label>
                 <input onBlur={(e) => birthCheck(e.target.value)} type="text" id="birthday" name="dateOfBirth" placeholder='01-01-2000'/>
                 {birthError
-                    ? <span className='errors'>{birthError}</span>
+                    ? <p className='errors'>{birthError}</p>
                     : ''
                 }
 
                 <label htmlFor="dname">Display Name</label>
                 <input onBlur={(e) => displayNameCheck(e.target.value)} type="text" id="dname" name="displayName" placeholder='ALO'/>
                 {displayNameError
-                    ? <span className='errors'>{displayNameError}</span>
+                    ? <p className='errors'>{displayNameError}</p>
                     : ''
                 }
 
                 <label htmlFor="imageUrl">Image</label>
                 <input onBlur={(e) => imageCheck(e.target.value)} type="text" id="imageUrl" name="imageUrl"/>
                 {imageError
-                    ? <span className='errors'>{imageError}</span>
+                    ? <p className='errors'>{imageError}</p>
                     : ''
                 }
 
@@ -170,7 +170,7 @@ export const CreateDriver = () => {
                 defaultValue={""}
                 />
                 {descriptionError
-                    ? <span className='errors'>{descriptionError}</span>
+                    ? <p className='errors'>{descriptionError}</p>
                     : ''
                 }
                 <button type="submit">Create</button>

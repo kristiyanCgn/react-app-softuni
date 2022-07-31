@@ -1,5 +1,5 @@
 body {
-	background: #FFF;
+	/* background: #FFF; */
 	padding: 1rem;
 }
 
@@ -7,12 +7,12 @@ form {
 	max-width: 30rem;
 }
 
-form, form fieldset, form legend, form label, form input, form textarea, form select {
+/* form, form fieldset, form legend, form label, form input, form textarea, form select {
 	display: block;
 	width: 100%;
 	border: none;
 	padding: 0.4rem;
-}
+} */
 
 form textarea {
 	border: none;
@@ -20,7 +20,7 @@ form textarea {
 }
 
 form fieldset, form legend {
-	border: 1px solid #666;
+	border: 1px solid #5d5757;
 	background: #F9F9F9;
 	border-radius: 0.3rem;
 	box-shadow: 0 0 1rem 0.1rem rgba(0, 0, 0, 0.1);

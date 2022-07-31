@@ -24,7 +24,7 @@ export const EditUserDriverCard = () => {
         const newData = Object.fromEntries(new FormData(e.target));
         currentProfile.driverData = newData;
         setCurrentProfile(currentProfile);
-        profileService.update(profileId, currentProfile);
+        await profileService.update(profileId, currentProfile);
 
         const newestList = await profileService.getAll();
         addUserDriver(newestList);

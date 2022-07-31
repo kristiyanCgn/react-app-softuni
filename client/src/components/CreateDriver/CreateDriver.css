@@ -32,6 +32,6 @@ button[type=text], select, textarea {
     padding: 20px;
   }
 
-  span {
+  .errors {
     color: #e10600;
   }
