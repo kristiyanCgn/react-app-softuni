@@ -7,7 +7,7 @@ export const appContext = createContext();
 export const AppProvider = ({ children }) => {
     const [drivers, setDrivers] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [errors, setErrors] = useState(null)
+    const [errors, setErrors] = useState([])
 
     useEffect(() => {
       setIsLoading(true);

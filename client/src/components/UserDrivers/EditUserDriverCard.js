@@ -16,17 +16,16 @@ export const EditUserDriverCard = () => {
             .then(result => {
                 setCurrentProfile(result)
             })
-    }, [])
+    }, [profileId])
 
     const onSubmit = async (e) => {
         e.preventDefault();
 
-        const newData = Object.fromEntries(new FormData(e.target));    
-        currentProfile.driverData = newData
-
+        const newData = Object.fromEntries(new FormData(e.target));
+        currentProfile.driverData = newData;
+        setCurrentProfile(currentProfile);
         profileService.update(profileId, currentProfile);
 
-        setCurrentProfile(currentProfile);
         const newestList = await profileService.getAll();
         addUserDriver(newestList);
 
