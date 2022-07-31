@@ -29,7 +29,7 @@ export const DriverCard = ({driver}) => {
     };
     
     return (
-        <li className="otherPet">
+        <li className="otherDriver">
             <p className="img img-driver"><img src={driver.imageUrl} /></p>
             <h2>{fullName}</h2>
             <p>Nationality: {driver.nationality}</p>

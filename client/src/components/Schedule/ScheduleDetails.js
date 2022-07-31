@@ -4,6 +4,7 @@ export const ScheduleDetails = ({ circuit, backClick }) => {
 
     return (
         <>
+        <h2>{circuit.Circuit.circuitName}</h2>
         <table id="customers">
             <thead>
                 <tr>

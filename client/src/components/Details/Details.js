@@ -24,7 +24,7 @@ export const Details = () => {
         return (
             <>
                 <section id="details-page" className="details">
-                    <div className="pet-information">
+                    <div className="driver-information">
                         <p className="img img-details"><img src={driver.imageUrl} alt='driver image' /></p>
                         <h4>First Name: {driver.givenName}</h4>
                         <h4>Family Name: {driver.familyName}</h4>
@@ -37,7 +37,7 @@ export const Details = () => {
                                 <span id="total-likes">Likes: {driver.likes?.length || 0}</span>
                             </div> */}
                     </div>
-                    <div className="pet-description">
+                    <div className="driver-description">
                         <h3>Biography:</h3>
                             <p>{driver.description}</p>
                             <a target="_blank" rel="noopener noreferrer" href={driver.url}>See More</a>

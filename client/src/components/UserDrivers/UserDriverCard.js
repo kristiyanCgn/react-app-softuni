@@ -24,7 +24,7 @@ export const UserDriverCard = ({ driver }) => {
 
     
     return (
-        <li className="otherPet">
+        <li className="otherDriver">
             <p className="img img-driver"><img src={driver.newData?.driverData?.imageUrl || driver.driverData?.imageUrl} /></p>
             <h3>{driver.newData?.driverData?.firstname || driver.driverData?.firstname}</h3>
             <h3>{driver.newData?.driverData?.familyname || driver.driverData?.familyname}</h3>

@@ -5,11 +5,11 @@ export const DriverList = ({drivers}) => {
         <>
             {drivers.length > 0
                 ? (
-                    <ul className="other-pets-list">
+                    <ul className="other-drivers-list">
                         {drivers.map(x => <DriverCard key={x.code} driver={x} />)}
                     </ul>
                 ) 
-                : <p className="no-pets">No drivers in database!</p>
+                : <p className="no-drivers">No drivers in database!</p>
             }
         </>
     );

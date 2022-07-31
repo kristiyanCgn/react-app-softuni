@@ -17,7 +17,7 @@ export const MyTeam = () => {
     }, [])
 
     return (
-        <ul className="other-pets-list">
+        <ul className="other-drivers-list">
             {myTeam.map(x => <MyTeamCard key={x._id} myDriver={x} setMyTeam={setMyTeam} />)}
         </ul>
     );
