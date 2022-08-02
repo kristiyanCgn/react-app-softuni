@@ -19,17 +19,18 @@ import { UserDrivers } from './components/UserDrivers/UserDrivers';
 import { EditUserDriverCard } from './components/UserDrivers/EditUserDriverCard';
 import { PrivateGuard } from './components/common/PrivateGuard';
 import { PublicGuard } from './components/common/PublicGuard';
+import styles from './App.module.css'
 
 
 function App() {
 
   return (
     <AuthProvider>
-    <div className="App">
+    <div>
 		
 	<Header />
 
-		<main id="site-content">
+		<main id={styles["site-content"]}>
       <AppProvider>
       <ProfileProvider>
         <Routes>

@@ -1,0 +1,31 @@
+.logo circle {
+    fill: red;
+}
+
+.dashboard>nav>ul {
+    display: flex;
+
+}
+
+.dashboard>nav>ul li:not(:last-child) {
+    padding-right: 1rem;
+}
+
+.dashboard .navbar {
+    justify-content: center;
+}
+
+.basic h1,
+.my-drivers h1,
+.dashboard h1 {
+    text-align: center;
+    margin: 0rem;
+    padding: 2rem 0 1rem 0;
+}
+
+.my-drivers .my-drivers-list,
+.dashboard .other.drivers-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}

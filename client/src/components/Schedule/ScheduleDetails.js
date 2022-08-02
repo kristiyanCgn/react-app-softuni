@@ -1,3 +1,5 @@
+import styles from './Schedule.module.css'
+
 
 export const ScheduleDetails = ({ circuit, backClick }) => {
     const thirdPractice = circuit.ThirdPractice;
@@ -5,7 +7,7 @@ export const ScheduleDetails = ({ circuit, backClick }) => {
     return (
         <>
         <h2>{circuit.Circuit.circuitName}</h2>
-        <table id="customers">
+        <table id={styles.customers}>
             <thead>
                 <tr>
                     <th>Date</th>
@@ -59,7 +61,7 @@ export const ScheduleDetails = ({ circuit, backClick }) => {
                 
             </tbody>
         </table>
-        <button onClick={backClick} className="button back-button">back</button>
+        <button onClick={backClick} className={styles["back-button"]}>back</button>
         </>
     );
 }

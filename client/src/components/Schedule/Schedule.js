@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { ScheduleCard } from "./ScheduleCard";
 
-import './Schedule.css'
+import styles from './Schedule.module.css'
 import { ScheduleDetails } from "./ScheduleDetails";
 
 export const Schedule = () => {
@@ -30,8 +30,8 @@ export const Schedule = () => {
         );
     } else {
         return (
-            <section id="schedule-page" className="schedule">
-                <ul className="other-schedule-list">
+            <section id={styles["schedule-page"]} className={styles.schedule}>
+                <ul className={styles["other-schedule-list"]}>
                     {schedule.map(x => <ScheduleCard key={x.raceName} circuit={x} clickHandler={clickHandler} />)}
                 </ul>
             </section>

@@ -1,4 +1,3 @@
-import './Standings.css'
 
 export const StandingsList = ({data}) => {
 

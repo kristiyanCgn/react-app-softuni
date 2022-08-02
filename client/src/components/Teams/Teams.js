@@ -4,6 +4,7 @@ import { appContext } from "../../Contexts/appContext";
 import * as teamService from '../../services/teamService';
 import { Spinner } from "../Spinner/Spinner";
 import { TeamList } from "./TeamsList";
+import styles from './Teams.module.css';
 
 
 
@@ -41,7 +42,7 @@ export const Teams = () => {
         );
     } else {
         return(
-            <section id="dashboard-page" className="dashboard">
+            <section id={styles["dashboard-page"]} className={styles.dashboard}>
                 <h1>Teams</h1>
     
                 <section>

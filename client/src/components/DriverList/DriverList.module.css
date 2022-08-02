@@ -1,0 +1,24 @@
+.no-drivers {
+    font-weight: bold;
+    font-size: large;
+    text-align: center;
+}
+
+/* .detailsOtherDriver,
+.detailsMyDriver,
+.deleteDriver,
+.otherDriver,
+.myDriver {
+    display: inline;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.detailsMyDriver>p:nth-child(2),
+.deleteDriver>p:nth-child(2),
+.otherDriver>p:nth-child(2),
+.myDriver>p:nth-child(2) {
+    font-size: 1.2rem;
+    font-weight: bold;
+} */

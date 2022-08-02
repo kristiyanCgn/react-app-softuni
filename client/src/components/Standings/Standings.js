@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react"; 
-import './Standings.css'
+import styles from './Standings.module.css'
 
 
 import * as standingsService from '../../services/standingsService';
@@ -27,10 +27,10 @@ export const Standings = () => {
         );
     } else {
         return (
-            <section id="dashboard-page" className="dashboard">
+            <section id={styles["dashboard-page"]} className={styles.dashboard}>
                 <h1>Standings</h1>
                     <p>Standings get updated afetr every race week.</p>
-                <table id='customers'>
+                <table id={styles.customers}>
                 <thead>
                     <tr>
                         <th>POS</th>

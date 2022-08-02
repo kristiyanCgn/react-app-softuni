@@ -4,7 +4,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { authContext } from '../../Contexts/authContext';
 import { profileContext } from '../../Contexts/profileContext';
 import * as profileService from '../../services/profileService';
-import './UserDriverCard.css';
+import styles from './UserDriverCard.module.css';
 
 export const UserDriverCard = ({ driver }) => {
     const navigate = useNavigate();
@@ -24,8 +24,8 @@ export const UserDriverCard = ({ driver }) => {
 
     
     return (
-        <li className="otherDriver">
-            <p className="img img-driver"><img src={driver.newData?.driverData?.imageUrl || driver.driverData?.imageUrl} /></p>
+        <li className={styles.profileDriver}>
+            <p className={styles["img-driver"]}><img src={driver.newData?.driverData?.imageUrl || driver.driverData?.imageUrl} /></p>
             <h3>{driver.newData?.driverData?.firstname || driver.driverData?.firstname}</h3>
             <h3>{driver.newData?.driverData?.familyname || driver.driverData?.familyname}</h3>
             <p>Driver Number: #{driver.newData?.driverData?.driverNumber || driver.driverData?.driverNumber}</p>
@@ -33,13 +33,11 @@ export const UserDriverCard = ({ driver }) => {
             <p>Date Of Brith: {driver.newData?.driverData?.dateOfBirth || driver.driverData?.dateOfBirth}</p>
             <p>Display Name: {driver.newData?.driverData?.displayName || driver.driverData?.displayName}</p>
             <p>Description: {driver.newData?.driverData?.description || driver.driverData?.description}</p>
-            {isOwner
-            ? 
+            {isOwner &&
             <>
-            <Link to={`/user-drivers/${driver._id}/edit`} className="button">Edit</Link>
-            <button onClick={() => deleteHandler(driver._id)} className="button">Delete</button>
+            <Link to={`/user-drivers/${driver._id}/edit`} className={styles.button}>Edit</Link>
+            <button onClick={() => deleteHandler(driver._id)} className={styles.button}>Delete</button>
             </>
-            : ''
             }
         </li>
     );

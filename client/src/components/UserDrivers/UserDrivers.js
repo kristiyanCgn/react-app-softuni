@@ -15,7 +15,7 @@ export const UserDrivers = ({ isLoading }) => {
         );
     } else {
         return (
-            <section id="dashboard-page" className="dashboard">
+            <section>
                 <h1>Profiles</h1>
     
                 <section>

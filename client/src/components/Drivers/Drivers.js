@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { appContext } from "../../Contexts/appContext";
 import { DriverList } from "../DriverList/DriverList";
 import { Spinner } from "../Spinner/Spinner";
-import './Drivers.css';
+import styles from './Drivers.module.css';
 
 
 export const Drivers = () => {
@@ -15,7 +15,7 @@ export const Drivers = () => {
         );
     } else {
         return (
-            <section id="dashboard-page" className="dashboard">
+            <section id="dashboard-page" className={styles.dashboard}>
                 <h1>Drivers</h1>
     
                 <section>

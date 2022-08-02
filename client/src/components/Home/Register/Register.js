@@ -2,7 +2,7 @@ import * as authService from '../../../services/authService';
 import { useContext } from 'react';
 import { authContext } from '../../../Contexts/authContext';
 
-import '../LoginAndRegister.css'
+import styles from '../LoginAndRegister.module.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { appContext } from '../../../Contexts/appContext';
 
@@ -35,11 +35,10 @@ export const Register = () => {
     return (
         <section>
             <form onSubmit={onSubmit}>
-                <div className="imgcontainer">
-                    <img src="img_avatar2.png" alt="" className="avatar" />
+                <div className={styles.imgcontainet}>
                 </div>
 
-                <div className="container">
+                <div className={styles.container}>
                     <label htmlFor="username"><b>Username</b></label>
                     <input type="text" placeholder="Enter Username" name="email" required />
 
@@ -56,7 +55,7 @@ export const Register = () => {
                     <button type="submit">Register</button>
                 </div>
 
-                    <p className="field">
+                    <p>
                         <span>
                             If you don't have profile click <Link to="/login">here</Link>
                         </span>

@@ -1,0 +1,24 @@
+.img-details {
+    margin-top: 10px;
+    border-radius: 50%;
+    height: 303px;
+    position: relative;
+    top: -30px;
+    right: 10px;
+    left: 800px;
+    float: left;
+    width: 248px;
+}
+
+#details-page > div:nth-child(2) > p {
+    padding-left: 50rem;
+    padding-right: 50rem;
+}
+
+p>h4 {
+    font-weight: bold;
+}
+
+.details {
+    margin-top: 80px;
+}

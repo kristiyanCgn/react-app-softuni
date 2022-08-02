@@ -1,0 +1,44 @@
+.img-driver {
+    margin-top: 10px;
+    border-radius: 50%;
+    height: 100px;
+    position: relative;
+    right: -35px;
+    float: left;
+    width: 150px;
+}
+
+.otherDriver {
+    display: inline-table;
+    align-items: inherit;
+    width: 28%;
+    margin-bottom: 15px;
+    padding: 10px;
+    box-shadow: -8px -2px 28px -8px #000000;
+}
+
+.button {
+    display: inline-block;
+    padding: 0.6rem 1rem;
+    border-radius: 0.4rem;
+    text-decoration: none;
+    background: #e10600;
+    color: rgb(255, 255, 255);
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+}
+
+.disabled {
+    display: inline-block;
+    padding: 0.6rem 1rem;
+    border-radius: 0.4rem;
+    text-decoration: none;
+    background: #5d5757;
+    color: rgb(255, 255, 255);
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+}

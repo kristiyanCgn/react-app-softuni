@@ -1,9 +1,9 @@
 import * as authService from '../../../services/authService';
-import '../LoginAndRegister.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { useContext } from 'react';
 import { authContext } from '../../../Contexts/authContext';
 import { appContext } from '../../../Contexts/appContext';
+import  styles  from '../LoginAndRegister.module.css'
 
 export const Login = () => {
     const { errors, addError } = useContext(appContext);
@@ -29,11 +29,11 @@ export const Login = () => {
     return (
         <section onSubmit={onSubmit}>
             <form>
-                <div className="imgcontainer">
-                    <img src="img_avatar2.png" alt="" className="avatar" />
+                <div className={styles.imgcontainer}>
+                    {/* <img src="img_avatar2.png" alt="" className="avatar" /> */}
                 </div>
 
-                <div className="container">
+                <div className={styles.container}>
                     <label htmlFor="username"><b>Username</b></label>
                     <input type="text" placeholder="Enter Username" name="email" required />
 
@@ -46,7 +46,7 @@ export const Login = () => {
                     <button type="submit">Login</button>
                 </div>
 
-                    <p className="field">
+                    <p>
                         <span>
                             If you don't have profile click <Link to="/register">here</Link>
                         </span>

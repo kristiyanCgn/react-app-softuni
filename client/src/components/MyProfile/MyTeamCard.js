@@ -1,9 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons'
-import './MyTeamCard.css'
 import { useContext } from 'react'
 import { appContext } from '../../Contexts/appContext'
 import * as driverService from '../../services/driverService';
+
+import styles from './MyTeamCard.module.css';
 
 export const MyTeamCard = ({ myDriver, setMyTeam }) => {
 
@@ -17,10 +18,10 @@ export const MyTeamCard = ({ myDriver, setMyTeam }) => {
     }
 
     return (
-        <li className="my-profile-card">
-            <p className="img img-driver"><img src={myDriver.driver.imageUrl} /></p>
+        <li className={styles["my-profile-card"]}>
+            <p className={styles["my-img-driver"]}><img src={myDriver.driver.imageUrl} /></p>
             <h2>{myDriver.driver.familyName}</h2>
-            <button onClick={() => onDeleteClick(myDriver._id)} className="button"><FontAwesomeIcon icon={faTrashCan} /></button>
+            <button onClick={() => onDeleteClick(myDriver._id)} className={styles["delete-button"]}><FontAwesomeIcon icon={faTrashCan} /></button>
         </li>
     );
 }

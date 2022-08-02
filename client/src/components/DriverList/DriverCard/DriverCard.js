@@ -5,7 +5,7 @@ import { authContext } from '../../../Contexts/authContext';
 
 import * as driverService from '../../../services/driverService';
 
-import './DriverCard.css'
+import styles from './DriverCard.module.css';
 
 export const DriverCard = ({driver}) => {
     let fullName = driver.givenName + ' ' + driver.familyName;
@@ -24,19 +24,19 @@ export const DriverCard = ({driver}) => {
             //     ...state,
             //     selectedDriver
             // ]);
-            e.target.className = 'disabled'
+            e.target.className = styles.disabled
         }
     };
     
     return (
-        <li className="otherDriver">
-            <p className="img img-driver"><img src={driver.imageUrl} /></p>
+        <li className={styles.otherDriver}>
+            <p className={styles["img-driver"]}><img src={driver.imageUrl} /></p>
             <h2>{fullName}</h2>
             <p>Nationality: {driver.nationality}</p>
             <p>Driver Number: #{driver.permanentNumber}</p>
-            <Link className="button" to={`/details/${driver.driverId}`}>Details</Link>
+            <Link className={styles.button} to={`/details/${driver.driverId}`}>Details</Link>
             {user.email
-            ? <button onClick={(e) => addToCollection(e, driver)} className="button">Add to my collection</button>
+            ? <button onClick={(e) => addToCollection(e, driver)} className={styles.button}>Add to my collection</button>
             : ''
             }
         </li>

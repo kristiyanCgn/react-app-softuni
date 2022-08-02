@@ -2,7 +2,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState, useContext } from 'react';
 
 import { profileContext } from '../../Contexts/profileContext';
-import './UserDriverCard.css';
+import styles from './EditUserDriverCard.module.css';
 import * as profileService from '../../services/profileService';
 
 export const EditUserDriverCard = () => {
@@ -35,7 +35,7 @@ export const EditUserDriverCard = () => {
 
 
     return (
-        <div className="container">
+        <div className={styles.container}>
             <form onSubmit={onSubmit}>
                 <label htmlFor="fname">First Name</label>
                 <input type="text" id="fname" name="firstname" defaultValue={currentProfile.newData?.driverData?.firstname || currentProfile.driverData?.firstname} />

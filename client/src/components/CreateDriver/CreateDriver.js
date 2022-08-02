@@ -4,7 +4,7 @@ import { appContext } from '../../Contexts/appContext';
 
 import { profileContext } from '../../Contexts/profileContext';
 import * as profileService from '../../services/profileService';
-import './CreateDriver.css';
+import styles from './CreateDriver.module.css';
 
 export const CreateDriver = () => {
     // const { errors, addError } = useContext(appContext);
@@ -105,12 +105,12 @@ export const CreateDriver = () => {
 
 
     return (
-        <div className="container">
+        <div className={styles.container}>
             <form onSubmit={onSubmit}>
                 <label htmlFor="fname">First Name</label>
                 <input onBlur={(e) => firstNameCheck(e.target.value)} type="text" id="fname" name="firstname" placeholder="Your name.." />
                 {fnameError
-                    ? <p className='errors'>{fnameError}</p>
+                    ? <p className={styles.errors}>{fnameError}</p>
                     : ''
                 }
                 <label htmlFor="lname">Family Name</label>
@@ -122,41 +122,41 @@ export const CreateDriver = () => {
                 placeholder="Your family name.."
                 />
                  {famnameError
-                    ? <p className='errors'>{famnameError}</p>
+                    ? <p className={styles.errors}>{famnameError}</p>
                     : ''
                 }
                  <label htmlFor="dnumber">Driver Number</label>
                 <input onBlur={(e) => driverNumberCheck(e.target.value)} type="text" id="dnumber" name="driverNumber" placeholder='#'/>
                 {driverNumberError
-                    ? <p className='errors'>{driverNumberError}</p>
+                    ? <p className={styles.errors}>{driverNumberError}</p>
                     : ''
                 }
 
                 <label htmlFor="nationality">Nationality</label>
                 <input onBlur={(e) => nationalityCheck(e.target.value)} type="text" id="nationality" name="nationality" placeholder='Thai'/>
                 {nationalityError
-                    ? <p className='errors'>{nationalityError}</p>
+                    ? <p className={styles.errors}>{nationalityError}</p>
                     : ''
                 }
 
                 <label htmlFor="birthday">Date Of Birth</label>
                 <input onBlur={(e) => birthCheck(e.target.value)} type="text" id="birthday" name="dateOfBirth" placeholder='01-01-2000'/>
                 {birthError
-                    ? <p className='errors'>{birthError}</p>
+                    ? <p className={styles.errors}>{birthError}</p>
                     : ''
                 }
 
                 <label htmlFor="dname">Display Name</label>
                 <input onBlur={(e) => displayNameCheck(e.target.value)} type="text" id="dname" name="displayName" placeholder='ALO'/>
                 {displayNameError
-                    ? <p className='errors'>{displayNameError}</p>
+                    ? <p className={styles.errors}>{displayNameError}</p>
                     : ''
                 }
 
                 <label htmlFor="imageUrl">Image</label>
                 <input onBlur={(e) => imageCheck(e.target.value)} type="text" id="imageUrl" name="imageUrl"/>
                 {imageError
-                    ? <p className='errors'>{imageError}</p>
+                    ? <p className={styles.errors}>{imageError}</p>
                     : ''
                 }
 
@@ -170,7 +170,7 @@ export const CreateDriver = () => {
                 defaultValue={""}
                 />
                 {descriptionError
-                    ? <p className='errors'>{descriptionError}</p>
+                    ? <p className={styles.errors}>{descriptionError}</p>
                     : ''
                 }
                 <button type="submit">Create</button>

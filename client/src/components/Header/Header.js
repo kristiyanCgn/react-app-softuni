@@ -1,18 +1,19 @@
 import { useContext } from 'react';
 import { authContext } from '../../Contexts/authContext';
 import { Link } from 'react-router-dom';
+import styles from './header.module.css';
 
 export const Header = () => {
     const { user } = useContext(authContext);
 
     return (
-        <div className="topnav">
+        <div className={styles.topnav}>
             <Link to='/' className="active">Home</Link>
             <Link to="/drivers">Drivers</Link>
             <Link to="/teams">Teams</Link>
             <Link to="/standings">Standings</Link>
             <Link to="/schedule">Schedule</Link>
-            <div className="topnav-right">
+            <div className={styles["topnav-right"]}>
                 {user.email
                 ?
                 <>

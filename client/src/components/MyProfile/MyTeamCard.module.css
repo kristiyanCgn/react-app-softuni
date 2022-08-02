@@ -1,0 +1,31 @@
+.my-profile-card {
+    display: inline-block;
+    flex-direction: column;
+    align-items: center;
+    align-items: inherit;
+    width: 25%;
+    margin-bottom: 15px;
+    padding: 10px;
+    box-shadow: -8px -2px 28px -8px #000000;
+}
+
+.delete-button {
+    background-color: #e10600;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.my-img-driver {
+    margin-top: 10px;
+    border-radius: 50%;
+    height: 100px;
+    position: relative;
+    bottom: 17px;
+    right: -45px;
+    float: left;
+    width: 120px;
+}
