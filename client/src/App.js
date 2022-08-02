@@ -20,6 +20,7 @@ import { EditUserDriverCard } from './components/UserDrivers/EditUserDriverCard'
 import { PrivateGuard } from './components/common/PrivateGuard';
 import { PublicGuard } from './components/common/PublicGuard';
 import styles from './App.module.css'
+import { Footer } from './components/Footer/Footer';
 
 
 function App() {
@@ -55,6 +56,9 @@ function App() {
       </ProfileProvider>
       </AppProvider>
 		</main>
+
+		<Footer />
+
     </div>
     </AuthProvider>
   );
