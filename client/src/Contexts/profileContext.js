@@ -12,17 +12,14 @@ export const ProfileProvider = ({ children }) => {
     
     const [userDrivers, setUserDrivers] = useState([]);
 
-        const deleteUserDriver = (recordId) => {
+    const deleteUserDriver = (recordId) => {
             setUserDrivers(state => state.filter(x => x._id !== recordId));
         }
 
-        const addUserDriver = (recordData) => {
+    const addUserDriver = (recordData) => {
             setUserDrivers(recordData)
         }
 
-        const updateUserDriver = () => {
-            
-        }
     
     useEffect(() => {
         setIsLoading(true);

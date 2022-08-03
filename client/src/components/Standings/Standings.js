@@ -29,7 +29,6 @@ export const Standings = () => {
             .then(res => {
                 setIsLoading(false)
                 let finalRes = res.MRData.StandingsTable.StandingsLists[0].ConstructorStandings
-                console.log(finalRes);
                 setConstructorStandings(finalRes)
             })
     }, [])

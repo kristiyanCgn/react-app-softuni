@@ -61,7 +61,7 @@ export const ScheduleDetails = ({ circuit, backClick }) => {
                 
             </tbody>
         </table>
-        <button onClick={backClick} className={styles["back-button"]}>back</button>
+        <button onClick={backClick} className={styles["button back-button"]}>back</button>
         </>
     );
 }

@@ -1,11 +1,13 @@
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Navigate } from 'react-router-dom';
 import { useEffect, useState, useContext } from 'react';
 
 import { profileContext } from '../../Contexts/profileContext';
 import styles from './EditUserDriverCard.module.css';
 import * as profileService from '../../services/profileService';
+import { authContext } from '../../Contexts/authContext';
 
 export const EditUserDriverCard = () => {
+    const { user } = useContext(authContext);
     const { addUserDriver } = useContext(profileContext);
     const navigate = useNavigate();
     const [currentProfile, setCurrentProfile] = useState([]);
@@ -33,7 +35,9 @@ export const EditUserDriverCard = () => {
         navigate('/user-drivers')
     }
 
-
+   let isOwner = currentProfile._ownerId === user._id;
+   
+    if(isOwner) {
     return (
         <div className={styles.container}>
             <form onSubmit={onSubmit}>
@@ -73,4 +77,7 @@ export const EditUserDriverCard = () => {
             </form>
         </div>
     );
+    } else {
+        <Navigate to='/' />
+    }
 }
