@@ -9,7 +9,7 @@ import styles from './UserDriverCard.module.css';
 export const UserDriverCard = ({ driver }) => {
     const navigate = useNavigate();
     const { user } = useContext(authContext);
-    const { deleteUserDriver } = useContext(profileContext);
+    const { deleteUserDriver, addLike } = useContext(profileContext);
     const isOwner = user._id == driver._ownerId
 
     const deleteHandler = async (driverId) => {
@@ -22,7 +22,19 @@ export const UserDriverCard = ({ driver }) => {
         }
     }
 
-    
+    const likeHandler = async (e, {driver}) => {
+
+        if(isNaN(driver.likes)){
+            driver.likes = 1;
+        } else {
+            driver.likes = driver.likes + 1;
+        }
+        e.currentTarget.className = styles.disabled;
+        e.currentTarget.disabled = true;
+        // await profileService.update(driver._id, driver)
+        addLike(driver._id);
+    }
+
     return (
         <li className={styles.profileDriver}>
             <p className={styles["img-driver"]}><img src={driver.newData?.driverData?.imageUrl || driver.driverData?.imageUrl} /></p>
@@ -33,11 +45,15 @@ export const UserDriverCard = ({ driver }) => {
             <p>Date Of Brith: {driver.newData?.driverData?.dateOfBirth || driver.driverData?.dateOfBirth}</p>
             <p>Display Name: {driver.newData?.driverData?.displayName || driver.driverData?.displayName}</p>
             <p>Description: {driver.newData?.driverData?.description || driver.driverData?.description}</p>
-            {isOwner &&
+            <p>Likes: {driver?.likes}</p>
+            {isOwner
+            ?
             <>
             <Link to={`/user-drivers/${driver._id}/edit`} className={styles.button}>Edit</Link>
             <button onClick={() => deleteHandler(driver._id)} className={styles.button}>Delete</button>
             </>
+            :
+            <button className={styles.button} onClick={(e) => likeHandler(e, {driver})}>Like</button>
             }
         </li>
     );

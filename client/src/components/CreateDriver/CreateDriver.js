@@ -27,6 +27,7 @@ export const CreateDriver = () => {
         e.preventDefault();
 
         const driverData = Object.fromEntries(new FormData(e.target));
+        driverData.likes = Number(0);
 
         if(fnameError || famnameError || nationalityError || driverNumberError || birthError || displayNameError || imageError || descriptionError) {
             return;
