@@ -50,8 +50,6 @@ export const UserDriverCard = ({ driver }) => {
         setLikes(upToDate);
     }
 
-    // console.log(likes);
-
     return (
         <li className={styles.profileDriver}>
             <p className={styles["img-driver"]}><img src={driver.newData?.driverData?.imageUrl || driver.driverData?.imageUrl} /></p>

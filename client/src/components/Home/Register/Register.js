@@ -34,7 +34,7 @@ export const Register = () => {
 
     return (
         <section>
-            <form onSubmit={onSubmit}>
+            <form className={styles.loginAndRegisterForm} onSubmit={onSubmit}>
                 <div className={styles.imgcontainet}>
                 </div>
 

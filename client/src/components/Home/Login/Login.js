@@ -28,7 +28,7 @@ export const Login = () => {
 
     return (
         <section onSubmit={onSubmit}>
-            <form>
+            <form className={styles.loginAndRegisterForm}>
                 <div className={styles.imgcontainer}>
                     {/* <img src="img_avatar2.png" alt="" className="avatar" /> */}
                 </div>

@@ -6,6 +6,7 @@ export const appContext = createContext();
 
 export const AppProvider = ({ children }) => {
     const [drivers, setDrivers] = useState([]);
+    const [filteredDrivers, setFilteredDrivers] = useState([])
     const [isLoading, setIsLoading] = useState(false);
     const [errors, setErrors] = useState([])
 
@@ -36,7 +37,8 @@ export const AppProvider = ({ children }) => {
                 finalResult[18].imageUrl = 'https://www.formula1.com/content/dam/fom-website/drivers/M/MAXVER01_Max_Verstappen/maxver01.png.transform/2col/image.png'
                 finalResult[19].imageUrl = 'https://www.formula1.com/content/dam/fom-website/drivers/S/SEBVET01_Sebastian_Vettel/sebvet01.png.transform/2col/image.png'
                 finalResult[20].imageUrl = 'https://www.formula1.com/content/dam/fom-website/drivers/G/GUAZHO01_Guanyu_Zhou/guazho01.png.transform/2col/image.png'
-                setDrivers(finalResult);
+                setDrivers(finalResult)
+                setFilteredDrivers(finalResult)
             })
             .catch(err => {
                 console.log(err);
@@ -47,8 +49,12 @@ export const AppProvider = ({ children }) => {
         setErrors(text);
     }
 
+    const searchByName = (drivers) => {
+        setFilteredDrivers(drivers)
+    }   
+
     return (
-        <appContext.Provider value={{ drivers, isLoading, setIsLoading, errors, addError }}>
+        <appContext.Provider value={{ drivers: filteredDrivers, isLoading, setIsLoading, errors, addError, searchByName }}>
             {children}
         </appContext.Provider>
     );
