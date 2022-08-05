@@ -1,16 +1,27 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
 import { authContext } from '../../Contexts/authContext';
 import { profileContext } from '../../Contexts/profileContext';
 import * as profileService from '../../services/profileService';
+import * as likeService from '../../services/likeService';
 import styles from './UserDriverCard.module.css';
 
 export const UserDriverCard = ({ driver }) => {
+    const [likes, setLikes] = useState([])
+    const [error, setError] = useState('')
     const navigate = useNavigate();
     const { user } = useContext(authContext);
     const { deleteUserDriver, addLike } = useContext(profileContext);
     const isOwner = user._id == driver._ownerId
+
+    useEffect(() => {
+        likeService.getProfileLikes(driver._id)
+            .then(result => {
+                setLikes(result)
+            })
+    }, [])
+
 
     const deleteHandler = async (driverId) => {
         const confirmation = window.confirm('Are you sure you want to delete this record?')
@@ -24,16 +35,22 @@ export const UserDriverCard = ({ driver }) => {
 
     const likeHandler = async (e, {driver}) => {
 
-        if(isNaN(driver.likes)){
-            driver.likes = 1;
-        } else {
-            driver.likes = driver.likes + 1;
+        if(likes.some(x => x.profileId === driver._id)) {
+            setError('You have already liked this profile')
+            return;
         }
+
         e.currentTarget.className = styles.disabled;
         e.currentTarget.disabled = true;
-        // await profileService.update(driver._id, driver)
-        addLike(driver._id);
+
+        await likeService.like(driver._id)
+        
+        const upToDate = await likeService.getProfileLikes(driver._id)
+
+        setLikes(upToDate);
     }
+
+    // console.log(likes);
 
     return (
         <li className={styles.profileDriver}>
@@ -45,7 +62,10 @@ export const UserDriverCard = ({ driver }) => {
             <p>Date Of Brith: {driver.newData?.driverData?.dateOfBirth || driver.driverData?.dateOfBirth}</p>
             <p>Display Name: {driver.newData?.driverData?.displayName || driver.driverData?.displayName}</p>
             <p>Description: {driver.newData?.driverData?.description || driver.driverData?.description}</p>
-            <p>Likes: {driver?.likes}</p>
+            {likes
+                ? <p>Likes: {likes.length}</p>
+                : <p>Likes: 0</p>
+            }
             {isOwner
             ?
             <>
@@ -54,6 +74,9 @@ export const UserDriverCard = ({ driver }) => {
             </>
             :
             <button className={styles.button} onClick={(e) => likeHandler(e, {driver})}>Like</button>
+            }
+            {error &&
+                <span className={styles.errorMsg}>{error}</span>
             }
         </li>
     );

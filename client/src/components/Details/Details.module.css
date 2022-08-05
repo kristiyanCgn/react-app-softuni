@@ -5,14 +5,14 @@
     position: relative;
     top: -30px;
     right: 10px;
-    left: 800px;
+    left: 630px;
     float: left;
     width: 248px;
 }
 
 #details-page > div:nth-child(2) > p {
-    padding-left: 50rem;
-    padding-right: 50rem;
+    padding-left: 30rem;
+    padding-right: 30rem;
 }
 
 p>h4 {

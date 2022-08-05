@@ -21,14 +21,6 @@ export const ProfileProvider = ({ children }) => {
             setUserDrivers(recordData)
         }
 
-    const addLike = (recordId) => {
-        setUserDrivers(state => {
-            let current = state.map(x => x._id === recordId)
-            current.likes = current.likes + 1;
-            return state.filter(x => x._id === recordId ? current : x)
-        })
-    }
-
     
     useEffect(() => {
         setIsLoading(true);
@@ -40,7 +32,7 @@ export const ProfileProvider = ({ children }) => {
       }, [])
 
     return (
-        <profileContext.Provider value={{ userDrivers, deleteUserDriver, addUserDriver, addLike }}>
+        <profileContext.Provider value={{ userDrivers, deleteUserDriver, addUserDriver }}>
             {children}
         </profileContext.Provider>
     );
