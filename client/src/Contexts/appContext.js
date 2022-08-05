@@ -6,9 +6,9 @@ export const appContext = createContext();
 
 export const AppProvider = ({ children }) => {
     const [drivers, setDrivers] = useState([]);
-    const [filteredDrivers, setFilteredDrivers] = useState('')
+    const [filteredDrivers, setFilteredDrivers] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [errors, setErrors] = useState([])
+    const [errors, setErrors] = useState([]);
 
     useEffect(() => {
       setIsLoading(true);
@@ -49,12 +49,17 @@ export const AppProvider = ({ children }) => {
         setErrors(text);
     }
 
-    const searchByName = (driver) => {
-        setFilteredDrivers(driver)
+    const filterDrivers = (text) => {
+
+        if(text === '') {
+            setFilteredDrivers(drivers)
+        } else {
+            setFilteredDrivers(drivers.filter(x => x.familyName.toLocaleLowerCase().includes(text) || x.givenName.toLocaleLowerCase().includes(text)));
+        }
     }   
 
     return (
-        <appContext.Provider value={{ drivers: filteredDrivers, isLoading, setIsLoading, errors, addError, searchByName }}>
+        <appContext.Provider value={{ drivers: filteredDrivers, isLoading, setIsLoading, errors, addError, filterDrivers }}>
             {children}
         </appContext.Provider>
     );

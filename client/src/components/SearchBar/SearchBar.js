@@ -3,31 +3,27 @@ import { appContext } from '../../Contexts/appContext';
 import styles from './SearchBar.module.css';
 
 export const Searchbar = () => {
-    const { drivers } = useContext(appContext);
-    const { searchByName } = useContext(appContext);
+    const { filterDrivers } = useContext(appContext);
+    const [search, setSearch] = useState('');
 
     const onChange = (e) => {
         let query = e.target.value.toLocaleLowerCase();
+        setSearch(query);
 
-        if(query === ''){
-            searchByName(drivers)
-            return;
-        }
+        filterDrivers(query);
 
-        const filtered = drivers.filter(x => x.familyName.toLocaleLowerCase().includes(query))
-        searchByName(filtered)
-   
     }
 
     const onSubmit = (e) => {
         e.preventDefault();
 
+        // filterDrivers(search);
     }
     
 
     return (
         <form onSubmit={onSubmit} className={styles.example}>
-            <input type="text" onChange={onChange} placeholder="Search by name.." name="search" />
+            <input type="text" onChange={onChange} value={search} placeholder="Search by name.." name="search" />
             <button type="submit"><i className={styles["fa fa-search"]}>Search</i></button>
         </form>
     );

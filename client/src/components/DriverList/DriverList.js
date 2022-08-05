@@ -8,17 +8,15 @@ export const DriverList = ({drivers}) => {
    
     return (
         <>
-            {drivers.length > 0
-                ? ( 
-                    <>
-                    <Searchbar drivers={drivers} />
-                    <ul>
-                        {drivers.map(x => <DriverCard key={x.code} driver={x} />)}
-                    </ul>
-                    </>
-                ) 
-                : <p className={styles["no-drivers"]}>No drivers in database!</p>
-            }
+            <Searchbar drivers={drivers} />
+                {drivers.length > 0
+                    ? (                    
+                        <ul>
+                            {drivers.map(x => <DriverCard key={x.code} driver={x} />)}
+                        </ul>                       
+                    ) 
+                    : <p className={styles["no-drivers"]}>No drivers in database!</p>
+                }
         </>
     );
 }
