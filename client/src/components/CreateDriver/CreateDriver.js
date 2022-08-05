@@ -106,7 +106,7 @@ export const CreateDriver = () => {
 
     return (
         <div className={styles.container}>
-            <form onSubmit={onSubmit}>
+            <form className={styles.createForm} onSubmit={onSubmit}>
                 <label htmlFor="fname">First Name</label>
                 <input onBlur={(e) => firstNameCheck(e.target.value)} type="text" id="fname" name="firstname" placeholder="Your name.." />
                 {fnameError

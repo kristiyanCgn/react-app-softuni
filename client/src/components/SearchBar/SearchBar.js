@@ -5,28 +5,26 @@ import styles from './SearchBar.module.css';
 export const Searchbar = () => {
     const { drivers } = useContext(appContext);
     const { searchByName } = useContext(appContext);
-    const [filteredDrivers, setFilteredDrivers] = useState([])
 
     const onChange = (e) => {
         let query = e.target.value.toLocaleLowerCase();
 
         if(query === ''){
             searchByName(drivers)
+            return;
         }
-        console.log(query);
+
         const filtered = drivers.filter(x => x.familyName.toLocaleLowerCase().includes(query))
-        setFilteredDrivers(filtered)
-        
-        // searchByName(filteredDrivers);
+        searchByName(filtered)
+   
     }
-    console.log(filteredDrivers);
 
     const onSubmit = (e) => {
         e.preventDefault();
 
-        searchByName(filteredDrivers);
     }
     
+
     return (
         <form onSubmit={onSubmit} className={styles.example}>
             <input type="text" onChange={onChange} placeholder="Search by name.." name="search" />

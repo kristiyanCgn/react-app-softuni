@@ -34,8 +34,8 @@ export const UserDriverCard = ({ driver }) => {
     }
 
     const likeHandler = async (e, {driver}) => {
-
-        if(likes.some(x => x.profileId === driver._id)) {
+        
+        if(likes.some(x => x._ownerId === user._id)) {
             setError('You have already liked this profile')
             return;
         }

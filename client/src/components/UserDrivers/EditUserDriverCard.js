@@ -40,7 +40,7 @@ export const EditUserDriverCard = () => {
     if(isOwner) {
     return (
         <div className={styles.container}>
-            <form onSubmit={onSubmit}>
+            <form className={styles.editForm} onSubmit={onSubmit}>
                 <label htmlFor="fname">First Name</label>
                 <input type="text" id="fname" name="firstname" defaultValue={currentProfile.newData?.driverData?.firstname || currentProfile.driverData?.firstname} />
                 <label htmlFor="lname">Family Name</label>

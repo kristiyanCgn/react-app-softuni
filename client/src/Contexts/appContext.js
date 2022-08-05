@@ -6,7 +6,7 @@ export const appContext = createContext();
 
 export const AppProvider = ({ children }) => {
     const [drivers, setDrivers] = useState([]);
-    const [filteredDrivers, setFilteredDrivers] = useState([])
+    const [filteredDrivers, setFilteredDrivers] = useState('')
     const [isLoading, setIsLoading] = useState(false);
     const [errors, setErrors] = useState([])
 
@@ -49,8 +49,8 @@ export const AppProvider = ({ children }) => {
         setErrors(text);
     }
 
-    const searchByName = (drivers) => {
-        setFilteredDrivers(drivers)
+    const searchByName = (driver) => {
+        setFilteredDrivers(driver)
     }   
 
     return (

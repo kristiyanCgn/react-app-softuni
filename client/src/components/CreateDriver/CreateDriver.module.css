@@ -31,3 +31,8 @@ button[type=text], select, textarea {
   .errors {
     color: #e10600;
   }
+
+  .createForm {
+    width: 30vw;
+    margin-left: 35vw;
+  }

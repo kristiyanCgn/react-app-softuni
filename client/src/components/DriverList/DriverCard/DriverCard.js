@@ -1,6 +1,5 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Link} from 'react-router-dom';
-import { appContext } from '../../../Contexts/appContext';
 import { authContext } from '../../../Contexts/authContext';
 
 import * as driverService from '../../../services/driverService';
@@ -9,8 +8,8 @@ import styles from './DriverCard.module.css';
 
 export const DriverCard = ({driver}) => {
     let fullName = driver.givenName + ' ' + driver.familyName;
+    const [error, setError] = useState(null)
 
-    // const { myDrivers, setMyDrivers } = useContext(appContext);
     const { user } = useContext(authContext);
 
     const addToCollection = async (e, selectedDriver) => {
@@ -20,11 +19,9 @@ export const DriverCard = ({driver}) => {
         if(myTeam.length < 5 && !isAdded){
             driverService.addDriver(selectedDriver);
 
-            // setMyDrivers(state => [
-            //     ...state,
-            //     selectedDriver
-            // ]);
             e.target.className = styles.disabled
+        } else {
+            setError('You either have this driver as team member or you have reached the maximum capacity for your team!')
         }
     };
     
@@ -38,6 +35,9 @@ export const DriverCard = ({driver}) => {
             {user.email
             ? <button onClick={(e) => addToCollection(e, driver)} className={styles.button}>Add to my collection</button>
             : ''
+            }
+            {error &&
+                <span>{error}</span>
             }
         </li>
     );
