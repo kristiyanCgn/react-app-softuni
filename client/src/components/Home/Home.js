@@ -11,7 +11,7 @@ export const Home = () => {
 
     useEffect(() => {
         setIsLoading(true);
-        fetch('http://ergast.com/api/f1/current/next.json')
+        fetch('https://ergast.com/api/f1/current/next.json')
             .then(res => res.json())
             .then(result => {
                 setNextRace(result.MRData.RaceTable.Races[0]);
@@ -21,7 +21,7 @@ export const Home = () => {
 
     useEffect(() => {
         setIsLoading(true);
-        fetch('http://ergast.com/api/f1/current/last.json')
+        fetch('https://ergast.com/api/f1/current/last.json')
             .then(res => res.json())
             .then(result => {
                 setLastRace(result.MRData.RaceTable.Races[0]);
@@ -36,7 +36,7 @@ export const Home = () => {
     } else {
         return (
             <>
-                <h2>Home Page</h2>
+                <h2>F1 Fan Page</h2>
                 <HomeCard nextRace={ nextRace } lastRace={ lastRace }/>
             </>
     );

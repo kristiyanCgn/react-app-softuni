@@ -36,7 +36,7 @@ export const CreateDriver = () => {
         const newestList = await profileService.getAll();
         addUserDriver(newestList);
 
-        navigate('/')
+        navigate('/user-drivers')
     }
 
     const firstNameCheck = (value) => {

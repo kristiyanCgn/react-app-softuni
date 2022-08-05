@@ -17,7 +17,7 @@ export const Schedule = () => {
     }
 
     useEffect(() => {
-        fetch('http://ergast.com/api/f1/current.json')
+        fetch('https://ergast.com/api/f1/current.json')
             .then(res => res.json())
             .then(result =>{
                 setSchedule(result.MRData.RaceTable.Races);

@@ -21,7 +21,7 @@ export const DriverCard = ({driver}) => {
 
             e.target.className = styles.disabled
         } else {
-            setError('You either have this driver as team member or you have reached the maximum capacity for your team!')
+            setError('You either have this driver as team member or you have reached the maximum capacity for a team!')
         }
     };
     
