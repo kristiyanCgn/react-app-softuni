@@ -1,12 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { ScheduleCard } from "./ScheduleCard";
 
 import styles from './Schedule.module.css'
 import { ScheduleDetails } from "./ScheduleDetails";
+import { appContext } from "../../Contexts/appContext";
 
 export const Schedule = () => {
     const [schedule, setSchedule] = useState([]);
     const [clickedCircuit, setClickedCircuit] = useState(null);
+    const { isLoading, setIsLoading } = useContext(appContext);
+
 
     const clickHandler = ({circuit}) => {
         setClickedCircuit(circuit);
@@ -17,9 +20,11 @@ export const Schedule = () => {
     }
 
     useEffect(() => {
+        setIsLoading(true);
         fetch('https://ergast.com/api/f1/current.json')
             .then(res => res.json())
             .then(result =>{
+                setIsLoading(false)
                 setSchedule(result.MRData.RaceTable.Races);
             })
     }, []);
