@@ -13,7 +13,15 @@ export const DriverCard = ({driver}) => {
     const { user } = useContext(authContext);
 
     const addToCollection = async (e, selectedDriver) => {
-        const myTeam = await driverService.getMyTeam(user._id, user.accessToken) || [];
+        const myTeam = await driverService.getMyTeam(user._id, user.accessToken);
+
+        if (myTeam.code == '404') {
+            driverService.addDriver(selectedDriver);
+            e.target.className = styles.disabled
+
+            return;
+        }
+
         const isAdded = myTeam.some(x => x.driver.driverId == selectedDriver.driverId)
 
         if(myTeam.length < 5 && !isAdded){

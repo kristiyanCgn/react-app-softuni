@@ -11,16 +11,28 @@ export const MyTeam = () => {
     useEffect(() => {
         const fetchData = async () => {
             const team = await driverService.getMyTeam(user._id, user.accessToken)
-            setMyTeam(team)
+
+            if(team.code) {
+                setMyTeam([]);
+            } else {
+                setMyTeam(team)
+            }
         }
         fetchData();
     }, [])
 
-    return (
-        <ul>
-            {myTeam.map(x => <MyTeamCard key={x._id} myDriver={x} setMyTeam={setMyTeam} />)}
-        </ul>
-    );
+    if (myTeam.length >= 1) {
+        return (
+            <ul>
+                {myTeam.map(x => <MyTeamCard key={x._id} myDriver={x} setMyTeam={setMyTeam} />)}
+            </ul>
+        );
+    } else {
+        return (
+            <h2>No drivers in the team yet!</h2>
+        );
+    }
+
     
 
 }

@@ -18,7 +18,7 @@ export const getMyTeam = async (ownerId, accessToken) => {
     return result;
 
     } catch (error) {
-        console.log(error);
+        console.log(error.message);
     }
 }
 
