@@ -40,7 +40,7 @@ export const Login = () => {
                     <label htmlFor="password"><b>Password</b></label>
                     <input type="password" placeholder="Enter Password" name="password" required />
                     {errors
-                    ? <span>{errors}</span>
+                    ? <span className={styles.spanErr}>{errors}</span>
                     : ''
                     }
                     <button type="submit">Login</button>

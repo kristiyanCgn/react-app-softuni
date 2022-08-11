@@ -46,4 +46,8 @@ span.psw {
   padding-top: 16px;
 }
 
+.spanErr {
+  color: red
+}
+
 

@@ -49,7 +49,7 @@ export const Register = () => {
                     <input type="password" placeholder="Repeat Password" name="repeatPassword" required />
                     
                     {errors
-                    ? <span>{errors}</span>
+                    ? <span className={styles.spanErr}>{errors}</span>
                     : ''
                     }
                     <button type="submit">Register</button>
