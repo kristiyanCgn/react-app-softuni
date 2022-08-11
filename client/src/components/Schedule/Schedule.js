@@ -4,6 +4,7 @@ import { ScheduleCard } from "./ScheduleCard";
 import styles from './Schedule.module.css'
 import { ScheduleDetails } from "./ScheduleDetails";
 import { appContext } from "../../Contexts/appContext";
+import { Spinner } from "../Spinner/Spinner";
 
 export const Schedule = () => {
     const [schedule, setSchedule] = useState([]);
@@ -28,6 +29,12 @@ export const Schedule = () => {
                 setSchedule(result.MRData.RaceTable.Races);
             })
     }, []);
+
+    if(isLoading) {
+        return (
+            <Spinner />
+        );
+    }
 
     if(clickedCircuit) {
         return (

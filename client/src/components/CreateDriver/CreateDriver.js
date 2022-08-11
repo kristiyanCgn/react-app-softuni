@@ -27,15 +27,19 @@ export const CreateDriver = () => {
 
         const driverData = Object.fromEntries(new FormData(e.target));
 
-        if(fnameError || famnameError || nationalityError || driverNumberError || birthError || displayNameError || imageError || descriptionError) {
+        if (fnameError || famnameError || nationalityError || driverNumberError || birthError || displayNameError || imageError || descriptionError) {
             return;
         }
+        
+        if (driverData.firstname == '' || driverData.familyname == '' || driverData.driverNumber == '' || driverData.nationality == '' ||
+        driverData.dateOfBirth == '' || driverData.displayName == '' || driverData.imageUrl == '' || driverData.description == '') {
+            return;
+        }
+        // await profileService.createDriver(driverData);
+        // const newestList = await profileService.getAll();
+        // addUserDriver(newestList);
 
-        await profileService.createDriver(driverData);
-        const newestList = await profileService.getAll();
-        addUserDriver(newestList);
-
-        navigate('/user-drivers')
+        // navigate('/user-drivers')
     }
 
     const firstNameCheck = (value) => {
