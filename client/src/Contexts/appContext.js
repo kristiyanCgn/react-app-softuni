@@ -8,7 +8,7 @@ export const AppProvider = ({ children }) => {
     const [drivers, setDrivers] = useState([]);
     const [filteredDrivers, setFilteredDrivers] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [errors, setErrors] = useState([]);
+    const [errors, setErrors] = useState(null);
 
     useEffect(() => {
       setIsLoading(true);

@@ -19,6 +19,7 @@ export const Login = () => {
             .then(authData => {
                 onLogin(authData);
                 navigate('/');
+                addError(null);
             })
             .catch ((error) => {
                 addError(error.message);

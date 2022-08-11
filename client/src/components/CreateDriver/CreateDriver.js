@@ -5,6 +5,7 @@ import { appContext } from '../../Contexts/appContext';
 import { profileContext } from '../../Contexts/profileContext';
 import * as profileService from '../../services/profileService';
 import styles from './CreateDriver.module.css';
+import { URL_PATTERN, NUMBER_PATTERN } from '../../const';
 
 export const CreateDriver = () => {
     // const { errors, addError } = useContext(appContext);
@@ -20,8 +21,6 @@ export const CreateDriver = () => {
     const [imageError, setImageError] = useState(null)
     const [descriptionError, setDescriptionError] = useState(null)
 
-    const URL_PATTERN = /^https?:\/\/(.+)/;
-    const NUMBER_PATTERN = /^[0-9]+$/;
 
     const onSubmit = async (e) => {
         e.preventDefault();
