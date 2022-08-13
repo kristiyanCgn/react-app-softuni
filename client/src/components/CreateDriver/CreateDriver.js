@@ -8,7 +8,7 @@ import styles from './CreateDriver.module.css';
 import { URL_PATTERN, NUMBER_PATTERN } from '../../const';
 
 export const CreateDriver = () => {
-    // const { errors, addError } = useContext(appContext);
+    const { errors, addError } = useContext(appContext);
     const { addUserDriver } = useContext(profileContext);
     const navigate = useNavigate();
 
@@ -35,11 +35,11 @@ export const CreateDriver = () => {
         driverData.dateOfBirth == '' || driverData.displayName == '' || driverData.imageUrl == '' || driverData.description == '') {
             return;
         }
-        // await profileService.createDriver(driverData);
-        // const newestList = await profileService.getAll();
-        // addUserDriver(newestList);
+        await profileService.createDriver(driverData);
+        const newestList = await profileService.getAll();
+        addUserDriver(newestList);
 
-        // navigate('/user-drivers')
+        navigate('/user-drivers')
     }
 
     const firstNameCheck = (value) => {
